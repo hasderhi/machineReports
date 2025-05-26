@@ -15,8 +15,3 @@ def get_node_and_npm_versions():
         "node_version": node_version,
         "npm_version": npm_version
     }
-
-# Example usage
-versions = get_node_and_npm_versions()
-print("Node.js version:", versions["node_version"] or "Not installed")
-print("npm version:", versions["npm_version"] or "Not installed")
