@@ -28,4 +28,4 @@ def get_package_managers():
         else:
             lines.append(f"{name}: Not installed/available")
 
-    return "\n    ".join(lines)
+    return "\n        ".join(lines)

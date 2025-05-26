@@ -2,6 +2,8 @@
 
 ## System and development environment report creation
 
+![Screenshot of a machineReports report](media/image.png)
+
 machineReports enables you to easily create detailed system reports containing:
 
 - Hardware information

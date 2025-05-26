@@ -5,4 +5,4 @@ def list_packages():
     output = []
     for package in installed_packages:
         output.append(f"{package.key} > {package.version}")
-    return '\n    '.join(map(str, sorted(output)))
+    return '\n        '.join(map(str, sorted(output)))

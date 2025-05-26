@@ -465,7 +465,7 @@ if answer.lower() == "h":
     filename = f"mReport_{date.strftime("%d")}_{date.strftime("%m")}_{date.strftime("%Y")}"
 
     print(bcolors.WARNING + f"Creating report {filename}..." + bcolors.ENDC)
-    with open(f"{filename}.html", "w") as w:
+    with open(f"output/{filename}.html", "w") as w:
         w.write(write_head(filename))
         w.write(write_body())
 else:
@@ -478,7 +478,7 @@ else:
 
 
 
-    with open(f"{filename}.txt", "w") as w:
+    with open(f"output/{filename}.txt", "w") as w:
         w.write(f"""--- machineReports by tk_dev---
         
     Report created on {datetime.datetime.now()}

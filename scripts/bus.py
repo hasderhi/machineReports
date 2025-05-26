@@ -69,6 +69,6 @@ def list_usb_devices():
             vendor, product = f"VID: {vid:04x}", f"PID: {pid:04x}"
         result.append(f"{vendor} - {product} (VID: {vid:04x}, PID: {pid:04x})")
 
-    return "\n".join(result)
+    return "\n        ".join(result)
 
 list_usb_devices()

@@ -10,6 +10,6 @@ def get_battery_status():
         time_left = battery.secsleft
 
     return f"""Percent: {battery.percent}
-    Plugged in: {battery.power_plugged}
-    Time left: {time_left}"""
+        Plugged in: {battery.power_plugged}
+        Time left: {time_left}"""
     

@@ -37,8 +37,8 @@ def get_git_info():
         git_installed = False
 
     return f"""Git Installed: {git_installed}
-    Username: {get_global_config_value("user.name") if git_installed else None}
-    User email: {get_global_config_value("user.email") if git_installed else None}
-    Global config: {get_global_config_list() if git_installed else {}}
-    Repository information (If available): {get_repo_info() if git_installed else None}
+        Username: {get_global_config_value("user.name") if git_installed else None}
+        User email: {get_global_config_value("user.email") if git_installed else None}
+        Global config: {get_global_config_list() if git_installed else {}}
+        Repository information (If available): {get_repo_info() if git_installed else None}
     """

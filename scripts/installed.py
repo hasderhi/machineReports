@@ -16,6 +16,6 @@ def list_software():
                 software.append(f"{software_name}")
             except Exception as e:
                 pass
-        return '\n    '.join(map(str, sorted(software)))
+        return '\n        '.join(map(str, sorted(software)))
     else:
         return "This option is only available under Windows."
