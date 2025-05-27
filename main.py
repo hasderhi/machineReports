@@ -56,7 +56,7 @@ https://tk-dev-software.com -->
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mReport {filename}</title>
+    <title>{filename}.html</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>{write_styles()}</style>
@@ -431,6 +431,16 @@ def write_body():
         </tr>
       </table>
 
+      <h2>WSL (Windows Subsystem for Linux)</h2>
+      <table>
+        <tr>
+          <th>Value</th>
+        </tr>
+        <tr>
+          <td>{wsl.get_wsl_info()}</td>
+        </tr>
+      </table>
+
       <h2>Environment variables</h2>
       <div class="expandable">
         <button class="expand-button" onclick="toggleExpandEnvVars()">Expand</button>
@@ -548,7 +558,7 @@ if answer.lower() == "h":
     date = datetime.datetime.now()
     filename = f"mReport_{date.strftime("%d")}_{date.strftime("%m")}_{date.strftime("%Y")}"
 
-    print(bcolors.WARNING + f"Creating report {filename}..." + bcolors.ENDC)
+    print(bcolors.WARNING + f"Creating report {filename}.html" + bcolors.ENDC)
     with open(f"output/{filename}.html", "w") as w:
         w.write(write_head(filename))
         w.write(write_body())
@@ -558,7 +568,7 @@ else:
 
     filename = f"mReport_{date.strftime("%d")}_{date.strftime("%m")}_{date.strftime("%Y")}"
 
-    print(bcolors.WARNING + f"Creating report {filename}..." + bcolors.ENDC)
+    print(bcolors.WARNING + f"Creating report {filename}.txt" + bcolors.ENDC)
 
 
 
