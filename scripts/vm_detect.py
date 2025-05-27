@@ -19,5 +19,3 @@ def detect_vm():
             return "No VM signature detected"
     except Exception as e:
         return f"Failed to detect VM: {e}"
-
-print(detect_vm())

@@ -18,6 +18,9 @@ try:
     from scripts import antivirus_state
     from scripts import java
     from scripts import vm_detect
+    from scripts import ports
+    from scripts import locale_keyboard
+    from scripts import wsl
 except ImportError:
     print("Warning! Internal imports could not be resolved! Please reinstall the repository!")
     exit(1)
@@ -36,6 +39,9 @@ try:
     import subprocess
     import pkg_resources
     import shellingham
+    import locale
+    import winreg
+    import ctypes
 except Exception as e:
     print(f"Warning! External dependency import failed! Please check if all dependencies are installed! Error: {e}")
     exit()
@@ -214,6 +220,15 @@ def write_script():
           content.style.display = "block";
         }
       }
+
+      function toggleExpandPorts() {
+        const content = document.getElementById("portsContent");
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      }
       """
 
 def write_pypath():
@@ -334,6 +349,14 @@ def write_body():
         </tr>
       </table>
 
+      <h2>Open connections</h2>
+      <div class="expandable">
+        <button class="expand-button" onclick="toggleExpandPorts()">Expand</button>
+            <div class="expand-content" id="portsContent">
+                {ports.get_net_connections()}
+            </div>
+      </div>
+
       <h2>Mounted disks</h2>
       <table>
         <tr>
@@ -341,6 +364,8 @@ def write_body():
         </tr>
         <tr>
           <td>{mountedd.get_disk_partitions_info()}</td>
+        </tr>
+      </table>
 
       <h2>USB devices</h2>
       <table>
@@ -537,7 +562,7 @@ else:
 
 
 
-    with open(f"output/{filename}.txt", "w") as w:
+    with open(f"output/{filename}.txt", "w", encoding="utf-8") as w:
         w.write(f"""--- machineReports by tk_dev---
         
     Report created on {datetime.datetime.now()}
@@ -556,6 +581,8 @@ else:
         {disk.get_diskinfo()}
         System timezone: {time.tzname}
         System time: {datetime.datetime.now()}
+        Language/Encoding: {locale_keyboard.get_system_locale()}
+        Keyboard layout: {locale_keyboard.get_keyboard_layout()}
         Uptime: {time.time() - psutil.boot_time()} seconds
         VM detected: {vm_detect.detect_vm()}
 
@@ -571,6 +598,9 @@ else:
         MAC Address: {':'.join(re.findall('..', '%012x' % uuid.getnode()))}
         Firewall: \n{internet.get_firewall_status()}
 
+    -- Open connections --
+{ports.get_net_connections()}
+
     -- USB Devices --
         {bus.list_usb_devices()}
 
@@ -584,6 +614,9 @@ else:
 
     -- Default shell --
         {shell.get_shell()}
+
+    -- WSL (Windows Subsystem for Linux) --
+        {wsl.get_wsl_info()}
 
     -- Antivirus status --
         {antivirus_state.get_antivirus_status()}
