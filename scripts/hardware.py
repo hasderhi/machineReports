@@ -1,4 +1,5 @@
 import psutil
+import time
 
 def get_battery_status():
     battery = psutil.sensors_battery()
@@ -7,7 +8,13 @@ def get_battery_status():
     if battery.power_plugged:
         time_left = "/"
     else:
-        time_left = battery.secsleft
+        if battery.secsleft == psutil.POWER_TIME_UNKNOWN:
+            time_left = "Unknown"
+        elif battery.secsleft == psutil.POWER_TIME_UNLIMITED:
+            time_left = "Unlimited"
+        else:
+            time_left = time.strftime("%H:%M:%S", time.gmtime(battery.secsleft))
+
 
     return f"""Percent: {battery.percent}
         Plugged in: {battery.power_plugged}
