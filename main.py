@@ -257,7 +257,7 @@ def write_body():
         </tr>
         <tr>
           <th>
-            <a href="https://tk-dev-software.com/appsupport">Support</a>
+            <a href="https://tk-dev-software.com/support">Support</a>
           </th>
         </tr>
       </table>
