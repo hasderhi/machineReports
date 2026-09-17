@@ -13,7 +13,7 @@ def find_config_files():
         ".condarc",
         ".pythonrc",
         ".inputrc",
-        ".config/code/settings.json",  # VS Code settings (Linux/macOS)
+        ".config/code/settings.json", # VS Code settings (Linux/macOS)
     ]
 
     found_files = {}

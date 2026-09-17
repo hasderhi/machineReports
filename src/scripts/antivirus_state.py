@@ -4,7 +4,7 @@ IMPORTANT
 This module is only checking the windows antivirus state and is not harming or interfering with the defending system
 IN ANY WAY!
 
-For absolute clarity, I have decided to document this script very exact. If you are still unsure, you can disable
+For absolute clarity, I have decided to document this script very concise. If you are still unsure, you can disable
 the execution of this part of the program by changing this variable to "False":
 """
 

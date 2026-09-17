@@ -14,7 +14,7 @@ if sys.platform == "win32":
 
     backend = usb.backend.libusb1.get_backend(find_library=lambda x: DLL_PATH)
 else:
-    backend = None  # Let pyusb auto-detect on non-Windows systems
+    backend = None # Let pyusb auto-detect on non-Windows systems
 
 USB_IDS_FILE = os.path.join(os.path.dirname(__file__), 'usb.ids')
 

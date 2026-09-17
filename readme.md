@@ -33,6 +33,12 @@ machineReports enables you to easily create detailed system reports containing:
 
 [Developer Website](https://tk-dev-software.com)
 
-[Support](https://tk-dev-software.com/appsupport)
+[Support](https://tk-dev-software.com/support)
 
-# tk_dev - Software with passion.
+## Author
+
+Annabeth Kisling
+
+[annabeth@tk-dev-software.com](annabeth@tk-dev-software.com)
+
+[tk-dev-software.com](https://tk-dev-software.com)
